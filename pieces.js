@@ -12,11 +12,9 @@ function genererPieces(pieces){
     for (let i = 0; i < pieces.length; i++) {
 
         const article = pieces[i];
-        // Récupération de l'élément du DOM qui accueillera les fiches
         const sectionFiches = document.querySelector(".fiches");
-        // Création d’une balise dédiée à une pièce automobile
         const pieceElement = document.createElement("article");
-        // Création des balises 
+        
         const imageElement = document.createElement("img");
         imageElement.src = article.image;
         const nomElement = document.createElement("h2");
@@ -34,7 +32,6 @@ function genererPieces(pieces){
         avisBouton.dataset.id = article.id;
         avisBouton.textContent = "Afficher les avis";
         
-        // On rattache la balise article a la section Fiches
         sectionFiches.appendChild(pieceElement);
         pieceElement.appendChild(imageElement);
         pieceElement.appendChild(nomElement);
@@ -42,7 +39,6 @@ function genererPieces(pieces){
         pieceElement.appendChild(categorieElement);
         pieceElement.appendChild(descriptionElement);
         pieceElement.appendChild(stockElement);
-        //Code aJouté
         pieceElement.appendChild(avisBouton);
     
      }
@@ -51,7 +47,7 @@ function genererPieces(pieces){
 
 genererPieces(pieces);
 
- //gestion des bouttons 
+
 const boutonTrier = document.querySelector(".btn-trier");
 
 boutonTrier.addEventListener("click", function () {
@@ -73,7 +69,7 @@ boutonFiltrer.addEventListener("click", function () {
     genererPieces(piecesFiltrees);
 });
 
-//Correction Exercice
+
 const boutonDecroissant = document.querySelector(".btn-decroissant");
 
 boutonDecroissant.addEventListener("click", function () {
@@ -102,7 +98,7 @@ for(let i = pieces.length -1 ; i >= 0; i--){
     }
 }
 console.log(noms)
-//Création de l'en-tête
+
 
 const pElement = document.createElement('p')
 pElement.innerText = "Pièces abordables";
@@ -114,12 +110,12 @@ for(let i=0; i < noms.length ; i++){
     nomElement.innerText = noms[i];
     abordablesElements.appendChild(nomElement);
 }
-// Ajout de l'en-tête puis de la liste au bloc résultats filtres
+
 document.querySelector('.abordables')
     .appendChild(pElement)
     .appendChild(abordablesElements);
 
-//Code Exercice 
+
 const nomsDisponibles = pieces.map(piece => piece.nom)
 const prixDisponibles = pieces.map(piece => piece.prix)
 
